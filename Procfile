@@ -1,1 +1,1 @@
-web: gunicorn todo_drf.wsgi
+web: gunicorn ft_blog.wsgi
