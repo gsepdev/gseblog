@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% for post in posts %}
+  <div id="main">
+
+        <!-- Post -->
+
+          <article class="post">
+            <header>
+
+              <div class="title">
+                <h2><a href="{% url 'blog_detail' post.slug %}">{{post.title}}</a></h2>
+
+              <div class="meta">
+                <time class="published">{{post.date_created}}</time>
+
+            </div>
+          </header>
+          <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+           <p>{{post.content | slice:":400" }}...}}</p>
+            <footer>
+
+                  <ul class="stats">
+                  <li><a href="{% url 'blog_detail' post.slug %}" class="button large">Continue Reading</a></li>
+
+
+
+                </ul>
+          </footer>
+
+
+
+        </article>
+        {% empty %}
+          <article class="post">
+                     <p>There are no posts </p>
+
+                     {% endfor %}
+          </article>
+</div>

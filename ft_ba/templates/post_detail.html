@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+        <p class="card-text ">{{ object.content | safe }}</p>
+      <!--  <img src= "{{ post.image_one.url }}" width=50 height=50 alt="img"/>
+        <img src= "{{ post.image_two.url }}" width=50 height=50  alt="img"/>-->
+       <div class="row">
+         <embed  src="{{ post.image_one.url }}"
+         style="width:700px; height:700px;" frameborder="0">
+         <hr/>
+         <embed id="iframe_pdf" src="{{ post.image_two.url }}"
+         style="width:700px; height:700px;" frameborder="0">
+       </div>
+
+
+      </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+  </div>
+</div>
+
+{% endblock content %}
